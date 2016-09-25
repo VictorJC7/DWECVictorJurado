@@ -5,17 +5,16 @@
     <title>Ejercicio 11</title>
     <script type="text/javascript">
       var num = prompt("Introduzca un numero del 1 al 10: ");
-      var mult = 1;
+      var i = 0;
     </script>
   </head>
   <body>
     <script type="text/javascript">
       if (num > 0 && num <= 10) {
         document.write("<h2> Tabla de multiplicar del " + num + ".</h2>");
-        while (mult <= 9) {
-        document.write("<p>" + mult + " x " + num + " = " + (mult * num) + "</p>");
-        mult++;
-      }
+        for (i = 0; i <= 10; i++) {
+          document.write("<p>" + i + " x " + num + " = " + (i * num) + "</p>");
+        }
       } else {
         alert("Introduzca un numero válido.");
       }
