@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 11</title>
+    <script type="text/javascript">
+      var num = prompt("Introduzca un numero del 1 al 10: ");
+      var mult = 1;
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      if (num > 0 && num <= 10) {
+        document.write("<h2> Tabla de multiplicar del " + num + ".</h2>");
+        while (mult <= 9) {
+        document.write("<p>" + mult + " x " + num + " = " + (mult * num) + "</p>");
+        mult++;
+      }
+      } else {
+        alert("Introduzca un numero válido.");
+      }
+    </script>
+  </body>
+</html>

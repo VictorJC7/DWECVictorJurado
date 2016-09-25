@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 12</title>
+
+<script type="text/javascript">
+  var fecha = new Date();
+  var dia = fecha.getDay();
+</script>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      switch (dia) {
+        case 0:
+            alert("Hoy es Domingo, y estamos en fin de semana!!" );
+          break;
+          case 1:
+            alert("Hoy es lunes, y quedan " + (5 - dia) + " dias para fin de semana, ¡Animo!" );
+          break;
+          case 2:
+              alert("Hoy es martes, y quedan " + (5 - dia) + " dias para fin de semana, ¡Animo!");
+          break;
+          case 3:
+              alert("Hoy es miercoles, y quedan solo " + (5 - dia) + " dias para fin de semana, ¡Animo que ya casi estamos :)!");
+          break;
+          case 4:
+              alert("Hoy es jueves y que solo " + (5 - dia) + " dia para fin de semana ¡Vamos que nos vamos!!!");
+          break;
+          case 5:
+              alert("Hoy es viernes y ya es fin de semana!!!!!!!!");
+          break;
+          case 6:
+            alert("Estamos a sabado, disfruta de tu finde!")
+            break;
+        default:
+          alert("Error fatal :(");
+          break;
+      }
+    </script>
+  </body>
+</html>
