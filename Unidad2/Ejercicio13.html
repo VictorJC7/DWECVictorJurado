@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 13</title>
+    <script type="text/javascript">
+      var anyoNac = prompt("Introduzca su año de nacimiento.");
+      var fecha = new Date();
+      var anyo = fecha.getFullYear();
+      function calculaEdad(anyoNac) {
+        return (anyo - anyoNac);
+      }
+      function saludador(calculaEdad){
+        if (calculaEdad(anyoNac) <= 20) {
+          console.log("Ye tio que tal!!!");
+        }
+        else if (calculaEdad(anyoNac) > 20 && calculaEdad(anyoNac) <= 40) {
+          console.log("Buenos dias, que tal va el dia");
+        }
+        else if (calculaEdad(anyoNac) > 40 && calculaEdad(anyoNac) <= 120) {
+          console.log("Buenos dias señor o señora, espero que tenga un buen dia.");
+        }
+        else {
+          console.log("Usted tiene una edad algo rara :S");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      console.log(calculaEdad(anyoNac));
+      console.log(saludador(calculaEdad));
+    </script>
+  </body>
+</html>
