@@ -13,9 +13,14 @@
     }
     function adivinaDia() {
       var dia = prompt("Introduzca un numero del 1 al 7");
+      if (isNan(dia)) {
+        alert("El numero introducido no es numerico");
+      }
+      else {
+        if (isFinite(dia)) {
       switch (dia) {
         case 1:
-          console.log(diasSemana[0);
+          console.log(diasSemana[0]);
           break;
         case 2:
           console.log(diasSemana[1]);
@@ -41,11 +46,17 @@
           break;
       }
     }
+    else {
+      alert("El numero introducido es infinito");
+    }
+      }
+    }
     </script>
   </head>
   <body>
     <script type="text/javascript">
-
+    mostrarArray();
+    adivinaDia();
     </script>
   </body>
 </html>
