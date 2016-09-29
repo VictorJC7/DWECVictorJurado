@@ -7,6 +7,7 @@
       var anyoNac = prompt("Introduzca su año de nacimiento.");
       var fecha = new Date();
       var anyo = fecha.getFullYear();
+
       function calculaEdad(anyoNac) {
         return (anyo - anyoNac);
       }
@@ -27,6 +28,9 @@
     </script>
   </head>
   <body>
+    <p>
+      Todos se muestra por consola
+    </p>
     <script type="text/javascript">
       console.log(calculaEdad(anyoNac));
       console.log(saludador(calculaEdad));
