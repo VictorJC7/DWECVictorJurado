@@ -1,0 +1,26 @@
+img{
+  float: left;
+  clear: left;
+  margin: 20px;
+  height: 200px;
+  width: 200px;
+}
+.izquierda{
+  float: left;
+  margin-left: 5px;
+}
+.derecha{
+  float: right;
+  margin-right: 5px;
+}
+#paginacion{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  clear: top;
+  background-color: rgb(199, 199, 199);
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.clear{
+  clear: both;
+}
