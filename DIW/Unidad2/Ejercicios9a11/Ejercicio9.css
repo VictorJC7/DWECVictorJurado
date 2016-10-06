@@ -1,15 +1,18 @@
-*{
+HTML{
   font-size: 0.9em;
   color: #0101DF;
   font-family: verdana;
   line-height: 1.4em;
+  background-image: url(http://www.fandroides.com/wp-content/uploads/2014/05/wall4.jpg);
 }
 h1{
   text-align: center;
-  border: 1px solid black;
+
   padding: 10px;
   border-radius: 4px;
   text-transform: capitalize;
+  background-image: url(https://1.bp.blogspot.com/_sD9yQTE5QZQ/SGvRFJbT6QI/AAAAAAAADg4/5Ot2-aTA4_w/s400/blue1961.jpg);
+  background-repeat: repeat-x;
 }
 p{
   text-indent: 1cm;
@@ -19,4 +22,43 @@ a:link{
 }
 a:visited{
   color:darkgreen;
+}
+.enlace1{
+  padding: 20px 20px 20px 35px ;
+  background: url(http://wwwimages.adobe.com/content/dam/acom/en/legal/images/badges/Adobe_PDF_file_icon_32x32.png) no-repeat left center;
+}
+#tabla1{
+  text-align: center;
+  font-size: 2em;
+  background: white;
+  border: 1px solid black;
+  border-collapse: collapse;
+  empty-cells: inherit;
+  border-spacing: 20px;
+  caption-side: bottom;
+}
+#tabla1 table{
+  empty-cells: hide;
+}
+#tabla1 tr, #tabla1 td{
+  border: 2px solid black;
+  padding: 20px;
+}
+#celdaCSS{
+  background: url(http://programandoointentandolo.com/wordpress/wp-content/uploads/2013/04/CSS3-logo.png) no-repeat left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+#celdaHTML{
+  background: url(http://programandoointentandolo.com/wordpress/wp-content/uploads/2013/04/HTML5-logo.png) no-repeat left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+tr:nth-child(odd){
+    background: white;
+}
+tr:nth-child(even){
+    background: #A4A4A4;
 }
