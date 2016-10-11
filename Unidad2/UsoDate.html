@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+
+    <script>
+    var date = new Date("12/15/2016");
+    document.write("La fecha con la que estamos trabajando es: " + date.toDateString() + "<br><br>");
+    function introFecha() {
+    var e = prompt("Introduce un dia (Tiene que ser del 1 al 31) para cambiar el dia del mes con el que estamos trabajando");
+    if (isNaN(e)) {
+      alert("No has introducido un valor correcto!!");
+    }
+    else if (isFinite(e)) {
+      if ((e > 0) && (e <= 31)) {
+        if (e == date.getDate()) {
+          alert("La fecha no cambiara porque el numero introducido es igual al que estaba.");
+        }else {
+        date.setDate(e);
+        document.write("Has cambiado la fecha a: " + date.toDateString());
+      }
+      }else {
+        alert("El numero introducido no pertenece a un dia del mes!");
+      }
+    }
+  }
+    </script>
+</head>
+<body>
+  <button onclick="introFecha()">Cambiar día del mes</button>
+</body>
+</html>
