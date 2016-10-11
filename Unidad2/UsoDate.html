@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 
     <script>
-    var date = new Date("12/15/2016");
-    document.write("La fecha con la que estamos trabajando es: " + date.toDateString() + "<br><br>");
+    var date = new Date();
+    document.write("Hoy es: " + date.toDateString() + "<br><br>");
     function introFecha() {
     var e = prompt("Introduce un dia (Tiene que ser del 1 al 31) para cambiar el dia del mes con el que estamos trabajando");
     if (isNaN(e)) {
@@ -25,15 +25,37 @@
       }
     }
   }
+
   function verHora(){
   var x = new Date();
   var y = x.toLocaleTimeString();
   alert("Son las " + y);
+  }
+
+  function mayorEdad(){
+  var a = new Date();
+  var anyoactual = date.getFullYear();
+  var anyo = prompt("Introduce tu año de nacimiento: ");
+  if (isNaN(anyo)) {
+    alert("Valor incorrecto");
+  }else {
+    if ((anyo > 0) && (anyo < date.getFullYear())) {
+      var resul = (date.getFullYear() - anyo);
+      if (resul >= 18) {
+        alert("Eres mayor de edad");
+      }else {
+        alert("Eres menor de edad");
+      }
+    }else {
+      alert("Hola");
+    }
+  }
   }
     </script>
 </head>
 <body>
   <button onclick="introFecha()">Cambiar día del mes</button>
   <button onclick="verHora()">Que hora es??</button>
+  <button onclick="mayorEdad()">Comprobar si eres mayor de edad</button>
 </body>
 </html>
