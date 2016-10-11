@@ -25,9 +25,15 @@
       }
     }
   }
+  function verHora(){
+  var x = new Date();
+  var y = x.toLocaleTimeString();
+  alert("Son las " + y);
+  }
     </script>
 </head>
 <body>
   <button onclick="introFecha()">Cambiar día del mes</button>
+  <button onclick="verHora()">Que hora es??</button>
 </body>
 </html>
