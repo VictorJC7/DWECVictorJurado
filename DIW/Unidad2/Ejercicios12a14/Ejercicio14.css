@@ -2,11 +2,16 @@ input{
   padding: .2em;
 }
 input:focus{
+<<<<<<< HEAD
   outline: none;
+=======
+outline: none;
+>>>>>>> 4f678cfde1e87cdd92ada18b46f5c5f8800e4012
 }
 input#nombre:focus, input#apellidos:focus, input#email:focus, input#fecha:focus, input#poblacion:focus, input#telefono:focus, input#nomusu:focus, input#pass:focus, input#repass:focus {
   border: 2px solid purple;
   background: gray;
+  outline: none;
 }
 input{
   border-radius: 4px;
