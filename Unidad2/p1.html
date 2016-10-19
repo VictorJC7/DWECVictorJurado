@@ -8,7 +8,7 @@
         var palabras = new Array();
         palabras = Formulario.area.value.split(" ");
         console.log(palabras);
-        var ventana = window.open("", "", "width=200,height=100");
+        var ventana = window.open("", "", "width=400,height=200");
         ventana.document.write('<meta charset="utf-8">');
         ventana.document.write('<b>Primera palabra: </b>' + palabras[0]);
         ventana.document.write('<br><b>Última palabra: </b>' + palabras[palabras.length-1]);
@@ -38,6 +38,7 @@
         palabraCorta();
         var listado = palabras.sort().join(' - ');
         ventana.document.write("<br><b>Por orden alfabetico: </b>" + listado);
+        ventana.document.write("<br><b>Numero de palabras: </b>" + palabras.length);
       }
     </script>
     <style media="screen">

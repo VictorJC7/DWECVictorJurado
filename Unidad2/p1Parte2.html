@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Practica 1. Parte 2</title>
+    <script type="text/javascript">
+    var letras = new Array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
+    's','t','u','v','w','x','y','z');
+    var num = Math.floor((Math.random() * letras.length));
+    var acertadas = new Array();
+    var falladas = new Array();
+    var contador = 0;
+    function obtenerLetra() {
+        document.write("<b>Introduzca palabras que comiencen por: </b>"
+        + letras[num] + "<br>");
+      }
+      function comprobarPalabras() {
+        var palabras = new Array();
+        palabras = formulario2.area.value.split(" ");
+        for (var i = 0; i < palabras.length; i++) {
+          if(palabras[i].charAt(0) == letras[num]){
+            acertadas.push(palabras[i]);
+          }else {
+            falladas.push(palabras[i]);
+            contador++;
+                }
+              }
+              mostrar();
+      }
+      function mostrar() {
+        var ventana = window.open("", "", "width=400,height=200");
+        if (contador > 0) {
+            ventana.document.write("Has fallado " + contador + " palabras: ");
+            for (var i = 0; i < falladas.length; i++) {
+            ventana.document.write(falladas[i]);
+            }
+        }else {
+          ventana.document.write("¡¡Has ganado!! Has acertado " + acertadas.length + " palabras: ");
+          for (var i = 0; i < acertadas.length; i++) {
+            ventana.document.write("<br>" + acertadas[i]);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Manipular arrays</h1>
+    <script type="text/javascript">
+      obtenerLetra();
+    </script>
+    <form name="formulario2">
+      <textarea name="area" rows="3" cols="40"></textarea>
+      <input type="button" name="boton" value="Aceptar" onclick="comprobarPalabras()">
+    </form>
+  </body>
+</html>
