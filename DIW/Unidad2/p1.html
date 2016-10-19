@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>U3. Practica 1</title>
+    <script type="text/javascript">
+      function contarPalabras() {
+        var palabras = new Array();
+        palabras = Formulario.area.value.split(" ");
+        console.log(palabras);
+        var ventana = window.open("", "", "width=200,height=100");
+        ventana.document.write('<meta charset="utf-8">');
+        ventana.document.write('<b>Primera palabra: </b>' + palabras[0]);
+        ventana.document.write('<br><b>Última palabra: </b>' + palabras[palabras.length-1]);
+        function palabraLarga() {
+          var larga = "a";
+          var pos = 0;
+          for (var i = 0; i < palabras.length; i++) {
+            if (palabras[i].length > larga.length) {
+              pos = i;
+              larga = palabras[i];
+            }
+          }
+          ventana.document.write("<br><b>Palabra mas larga: </b>" + palabras[pos]);
+        }
+        function palabraCorta() {
+          var corta = "dddddddddddddddddagfjkajflkfhklajhfklahfklahaioehhkksdjkdhfjkhfhjk";
+          var pos2 = 0;
+          for (var i = 0; i < palabras.length; i++) {
+            if (palabras[i].length < corta.length) {
+              pos2 = i;
+              corta = palabras[i];
+            }
+          }
+          ventana.document.write("<br><b>Palabra mas corta: </b>" + palabras[pos2]);
+        }
+        palabraLarga();
+        palabraCorta();
+        var listado = palabras.sort().join(' - ');
+        ventana.document.write("<br><b>Por orden alfabetico: </b>" + listado);
+      }
+    </script>
+    <style media="screen">
+      textarea, input{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-left: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Manipular arrays</h1>
+    <form name="Formulario">
+      <p>
+        Introduce algunas palabras:
+      </p>
+      <textarea name="area" rows="3" cols="40"></textarea>
+      <input type="button" name="boton" value="Aceptar" onclick="contarPalabras()">
+    </form>
+  </body>
+</html>
