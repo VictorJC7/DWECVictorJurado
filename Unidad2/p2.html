@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Practica 2</title>
+  </head>
+  <script type="text/javascript">
+
+  var crono = new Object();
+
+  var diferencia = new Date();
+
+  crono.formatear = function(){
+    if (Tiempo < 10) {
+      return "0" + Tiempo;
+    }
+    else {
+      return Tiempo;
+    }
+  }
+  crono.empezar = function(){
+    var ventana = window.open("", "", "width=400,height=200");
+    if (crono.timer == 0) {
+    crono.inicio = new Date().getTime();
+    contar();
+  }else {
+    contar();
+  }
+  }
+  crono.contar = function(){
+    var actual = new Date().getTime();
+    diferencia = new Date(actual - crono.inicio);
+    //Mostramos el cronometro:
+    var resul = (formatear(diferencia.getUTCHours())) + " : " + (formatear(diferencia.getUTCMinutes()))
+     + " : " + (formatear(diferencia.getUTCSeconds()));
+    ventana.document.body.innerHTML = resul;
+    crono.timer = setTimeout(contar, 1000);
+  }
+  crono.reiniciar = function(){
+    timer = 0;
+    clearTimeout(timer);
+    contar();
+  }
+  crono.parar = function(){
+
+  }
+  </script>
+  <body>
+    <h1>Cronometro</h1>
+    <input type="button" name="Inciar" value="Inciar" onclick="crono.empezar();">
+    <input type="button" name="Reiniciar" value="Reiniciar" onclick="crono.reiniciar()">
+    <input type="button" name="Parar" value="Parar" onclick="crono.parar()">
+  </body>
+</html>
