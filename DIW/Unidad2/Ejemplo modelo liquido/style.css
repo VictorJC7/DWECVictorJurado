@@ -1,0 +1,129 @@
+/*Reseteamos las cajas*/
+*	{
+	margin: 0px;
+	padding: 0px;
+ }
+
+/* Para que los nuevos elementos sean tratamos como block */
+header, section, footer, aside, nav, article, figure, figcaption,hgroup {
+	display: block;
+}
+
+/*Centramos el elemento contenedor y alineamos normalmente dentro del contenedor*/
+body {
+	text-align: center;
+}
+
+#container {
+	width: 100%;
+	/* Con max-width conseguimos que nunca supere los 960px, y que la web sea proporcional
+	en resoluciones mas pequeñas */
+	max-width: 960px;
+	/* Margin: 15px auto; Habra que convertirlo, para ello hacemos una regla de 3
+	960px --> 100%, 15px --> X; x=1.5% */
+	margin: 1.5% auto;
+	text-align: left;
+}
+
+#cabecera {
+	background: lightblue;
+	border: 1px solid lightgray;
+	padding: 2%;
+}
+
+/* barra de navegación */
+#menu {
+	background: #CCCCCC;
+	padding: 0.5% 1.5%;
+}
+
+#menu li {
+	display: inline-block;
+	list-style: none;
+	padding: 0.5%;
+	/*font: bold 14px verdana, sans-serif; Para hacer la letra, tendre,os que saber
+	que como norma general las letras usan 16px; Esto lo pasaremos a em --> 14/16 = 0.8em*/
+	font: bold 0.8em verdana, sans-serif;
+}
+/*Aclaración inline-block: se comporta como un in-line
+pero el conjunto de inlines's ocupan todo el ancho como un block.
+Equivale a un float:left pero ahorramos el clear en el sig elemento.
+Más info: http://www.w3schools.com/css/css_inline-block.asp
+*/
+
+
+/* dos columnas para los bloques de section y aside */
+#seccion {
+	float: left;
+	width: 69%;
+	margin: 2%;
+	}
+
+#columna {
+	float: left;
+	width: 23%;
+	margin: 2% 0px;
+	padding: 2%;
+	background: #CCCCCC;
+	}
+
+/* Pie a una columna */
+#pie {
+	clear: both;
+	text-align: center;
+	padding: 2%;
+	border-top: 2px solid #999999;
+	}
+
+
+/* ultimos retoques */
+img{
+	/*Para la imagen sacaremos la regla de 3 que es 21%, pero habra que ponerle un max-width
+	Para poner su cantidad optima*/
+	width: 21%;
+	max-width: 200px;
+	margin: 0.5%;
+}
+
+article {
+	border: 1px solid #999999;
+	padding: 2%;
+	margin-bottom: 1.5%;
+	background: linen;
+}
+
+article footer {
+	text-align: right;
+	color: steelblue;
+	font-weight: bold;
+}
+
+article header{
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+article hgroup {
+	margin-bottom: 1%;
+}
+
+time {
+	color: #999999;
+}
+
+/*Estilos de letra*/
+#cabecera h1{
+	font: bold 1.5em verdana, sans-serif;
+}
+
+article h1{
+	font: bold 1.25em verdana, sans-serif;
+}
+
+h2 {
+	font: bold 0.8em verdana, sans-serif;
+}
+
+figcaption {
+	font: italic 0.75em verdana, sans-serif;
+}
