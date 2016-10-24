@@ -6,11 +6,15 @@
   </head>
   <script type="text/javascript">
 
-  var crono = new Object();
-
   var diferencia = new Date();
+  var timer = 0, timer2 = 0;
+  var ventana;
+  var marcha = 0;
+  var contado = new Date();
+  var actual;
+  var date;
 
-  crono.formatear = function(){
+  function formatear(Tiempo){
     if (Tiempo < 10) {
       return "0" + Tiempo;
     }
@@ -18,37 +22,61 @@
       return Tiempo;
     }
   }
-  crono.empezar = function(){
-    var ventana = window.open("", "", "width=400,height=200");
-    if (crono.timer == 0) {
-    crono.inicio = new Date().getTime();
-    contar();
-  }else {
-    contar();
+  function empezar(){
+    if (marcha == 0) {
+    timer = setInterval(contar, 250);
+    inicio = new Date();
+    marcha=1;
   }
+  else {
+      timer = setInterval(contar, 250);
+      marcha = 2;
   }
-  crono.contar = function(){
-    var actual = new Date().getTime();
-    diferencia = new Date(actual - crono.inicio);
+  ventana = window.open("", "", "width=400,height=200");
+  }
+  function contar(){
+    actual = new Date();
+    if (marcha == 1) {
+    diferencia = new Date(actual.getTime() - inicio.getTime());
     //Mostramos el cronometro:
-    var resul = (formatear(diferencia.getUTCHours())) + " : " + (formatear(diferencia.getUTCMinutes()))
-     + " : " + (formatear(diferencia.getUTCSeconds()));
+    var resul = (formatear(diferencia.getUTCHours())) + " : " + (formatear(diferencia.getMinutes()))
+     + " : " + (formatear(diferencia.getSeconds()));
     ventana.document.body.innerHTML = resul;
-    crono.timer = setTimeout(contar, 1000);
   }
-  crono.reiniciar = function(){
-    timer = 0;
-    clearTimeout(timer);
-    contar();
+  else {
+    diferencia = new Date();
+    actual = new Date();
+    inicio = new Date();
+    diferencia.setTime((actual.getTime() - inicio.getTime()) + contado.getTime());
+    resul = (formatear(diferencia.getUTCHours())) + " : " + (formatear(diferencia.getMinutes()))
+     + " : " + (formatear(diferencia.getSeconds()));
+    ventana.document.body.innerHTML = resul;
   }
-  crono.parar = function(){
-
   }
+  function reiniciar(){
+    if (marcha == 1) {
+      clearInterval(timer);
+      marcha = 0;
+    }
+    diferencia=0;
+    resul = "00:00:00";
+    ventana.document.body.innerHTML = "00 : 00 : 00";
+  }
+  function parar(){
+    marcha = 2;
+    if (marcha == 1 || marcha == 2) {
+        contado.setTime(diferencia.getTime());
+        clearInterval(timer);
+        clearInterval(diferencia);
+        ventana.document.body.innerHTML = (formatear(diferencia.getUTCHours())) + " : " + (formatear(diferencia.getUTCMinutes()))
+         + " : " + (formatear(diferencia.getUTCSeconds()));
+        }
+   }
   </script>
   <body>
     <h1>Cronometro</h1>
-    <input type="button" name="Inciar" value="Inciar" onclick="crono.empezar();">
-    <input type="button" name="Reiniciar" value="Reiniciar" onclick="crono.reiniciar()">
-    <input type="button" name="Parar" value="Parar" onclick="crono.parar()">
+    <input type="button" name="Inciar" value="Inciar" onclick="empezar();">
+    <input type="button" name="Reiniciar" value="Reiniciar" onclick="reiniciar();">
+    <input type="button" name="Parar" value="Parar" onclick="parar();">
   </body>
 </html>
