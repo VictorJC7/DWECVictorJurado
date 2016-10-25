@@ -6,6 +6,8 @@
   </head>
   <script type="text/javascript">
 
+  var crno = new Object();
+
   var diferencia = new Date();
   var timer = 0, timer2 = 0;
   var ventana;
@@ -24,14 +26,13 @@
   }
   function empezar(){
     if (marcha == 0) {
-    timer = setInterval(contar, 250);
     inicio = new Date();
     marcha=1;
   }
   else {
-      timer = setInterval(contar, 250);
       marcha = 2;
   }
+  timer = setInterval(contar, 250);
   ventana = window.open("", "", "width=400,height=200");
   }
   function contar(){

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cronometro</title>
+    <script type="text/javascript">
+      var crono = new Object();
+      crono.timer = 0;
+      crono.inicio = undefined;
+      crono.actual = undefined;
+      crono.date = undefined;
+
+      var ventana; var marcha = false; var diferencia;
+
+      crono.empezar = function() {
+        if (marcha == false) {
+          crono.inicio = new Date();
+          marcha = true;
+          ventana = window.open("", "", "width=400,height=200");
+          crono.timer = setInterval(crono.contar, 500);
+        }
+        else {
+          alert("El cronometro ya esta en marcha!!");
+        }
+    }
+
+    crono.contar = function() {
+      crono.actual = new Date();
+      diferencia = new Date(crono.actual.getTime() - crono.inicio.getTime());
+      var horas = diferencia.getUTCHours();
+      var minutos = diferencia.getMinutes();
+      var segundos = diferencia.getSeconds();
+      var resul = crono.formatear(horas) + ":" + crono.formatear(minutos) + ":" + crono.formatear(segundos);
+      ventana.document.body.innerHTML = resul;
+    }
+
+    crono.formatear = function(Tiempo){
+      if (Tiempo < 10) {
+        return "0" + Tiempo;
+      }
+      else {
+        return Tiempo;
+      }
+    }
+
+    crono.reiniciar = function(){
+      clearInterval(crono.timer);
+      marcha = false;
+      ventana.document.body.innerHTML = "00:00:00";
+    }
+    </script>
+    <style media="screen">
+      h1{
+        color: darkgreen;
+        font-size: 3em;
+      }
+      body{
+        text-align: center;
+        vertical-align: middle;
+      }
+      .crono{
+        padding-top: -200px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: -200px;
+        vertical-align: middle;
+        text-align: center;
+        border: 2px solid darkblue;
+      }
+      #botonIni, #botonRe  {
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px;
+        margin: 0 10px 20px 0;
+        border: 1px solid white;
+        background: blue;
+        color: white;
+        border-radius: 8px 8px 8px 8px;
+      }
+      #botonIni:hover, #botonRe:hover {
+        background: darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="crono">
+      <h1>Cronometro</h1>
+      <input type="button" name="Inciar" value="Inciar" id="botonIni" onclick="crono.empezar()">
+      <input type="button" name="Reiniciar" value="Reiniciar" id="botonRe" onclick="crono.reiniciar()">
+    </div>
+  </body>
+</html>
