@@ -30,7 +30,7 @@
     }
 
     Productos.prototype.verIngredientes = function(){
-      var ventana = window.open("", "", "width=200, heigth=200");
+      var ventana = window.open("", "", "width=200, height=200");
       for (var i = 0; i < this.ingredientes.length; i++) {
         ventana.document.write("<br>" + this.ingredientes[i]);
       }
@@ -39,7 +39,7 @@
 
     Productos.prototype.buscaInfo = function(){
       var url = "https://www.google.es/search?q=" + this.nombre;
-      window.open(url, "", "width=500, heigth=500");
+      window.open(url, "", "width=500, height=500");
     }
 
     var producto1 = new Productos("001","Pan",["agua", "harina", "levadura","sal"]);
