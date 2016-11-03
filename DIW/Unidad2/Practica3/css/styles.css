@@ -44,7 +44,7 @@ p {
 }
 
 /*The container include a margin between browser and the elements*/
-.container{
+.container2{
   margin-right: auto;
   margin-left: auto;
   padding-right: 15px;
@@ -56,7 +56,7 @@ p {
 margin-right: 10px;
 margin-left: 10px;
 margin-bottom: 20px;
-padding-bottom: 5px; 
+padding-bottom: 5px;
 background-color: #ABABAB;
 border: 1px solid black;
 }
@@ -73,6 +73,9 @@ border: 1px solid black;
 
 .title_sand{
   background-color: #F5DA81;
+}
+.menu{
+  display: none;
 }
 
 /********** Desktop devices **********/
@@ -159,6 +162,15 @@ border: 1px solid black;
   .col-md-12 {
     width: 100%;
   }
+
+  .torrijas{
+    clear: left;
+  }
+}
+.barra{
+  color: darkgreen;
+  background-color: lightgray;
+  margin-bottom: 20px;
 }
 
 /********** Mobile devices **********/
@@ -201,5 +213,8 @@ border: 1px solid black;
   }
   .col-sm-12 {
     width: 100%;
+  }
+  .menu{
+    display: inline;
   }
 }
