@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Prubas examen</title>
+  </head>
+  <script type="text/javascript">
+    //Crear una funciuon sin parametros
+    var a = 1;
+    var b = 2;
+
+    function funcion1() {
+      return a + b;
+    }
+
+    //Crear una funcion con parametros
+    var x;
+    var y;
+    function funcion2(x, y) {
+      return x + y;
+    }
+    //Crear una funcion con paramatros que devuelva algo
+    function funcion3(x, y) {
+      var res = x + y;
+      return res;
+    }
+
+    //LLamar una funcion dentro de otra
+  function creaMultiplicadores(multiplicador) {
+	   var funcionResultado = function (x) {
+	      return multiplicador * x;
+    };
+	   return funcionResultado;
+  }
+
+  //Abre una ventana en blanco de tamaño 400x500
+  var ventana = window.open("", "", "width=400, height=500");
+
+  //Abre una ventana con la busqueda de google de javascript
+  var url ="https://www.google.es/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=javascript" ;
+  var ventanaJS = window.open(url, "", "width=400, height=500");
+
+  //Cierra la vetana en la que estas
+  window.close();
+
+  //Añadir lineas en la ventana en la que estas
+  document.body.innerHTML= "Hola que tal";
+
+  //Escribe 3 pabaras en la venta por separado
+  var array1 = new Array("Hola", "que", "tal");
+  for (var i = 0; i < array1.length; i++) {
+    document.body.innerHTML= array1[i] + "<br>";
+  }
+
+  //Cambiar todo el contenido por un "hola"
+  function cambiarContenidoPorHola() {
+    document.write("Hola");
+  }
+
+  //Funcion para cambiar todo el contenido de una ventana
+  function CambiarContenidoDeUnaVentana(var ventana) {
+    ventana.document.write("Hola");
+  }
+
+  //Crear una ventana de aviso alert con contenido "hola"
+  function mostrarAlert() {
+    alert("Hola");
+  }
+
+  //Crear una variable que coja un valor mediante prompt
+  var as = prompt("Escribe el vaor de la variable");
+
+  //Muestra por consola el mensaje "hola"
+  console.log("Hola");
+
+  //Crea una funcion que salude y llamala cada 2 segs
+  function saludador() {
+    return "hola";
+  }
+  function activarSaludos(){
+    setInterval(saludador, 2000);
+  }
+
+  //Funcion que muestre un mensaje pasados 3 segundos
+  var numIni = 3;
+  function cuentaAtras() {
+    numIni--;
+    if (numIni == 0) {
+      saludador();
+    }
+  }
+  function activarCuentaAtras() {
+    setInterval(cuentaAtras, 1000);
+  }
+
+  //Redondear 8,46 hacia arriba
+  var numeroRedondear = 8.46;
+
+  function redondearHaciaArriba(numero) {
+    Math.ceil(numero);
+  }
+  function redondearHaciaAbajo(numero) {
+    Math.floor(numero);
+  }
+  function redondeAritmetico(numero) {
+    Math.round(numero);
+  }
+
+  //Dejar numero con un deciaml
+  function limitarDeciamales(numero) {
+    numero.toFixed(1);
+  }
+
+  //Randoms
+  function randomDe0a8() {
+    Math.floor(Math.random() * 8);
+  }
+  function randomDe1a6() {
+    Math.floor(Math.random() * 6 + 1);
+  }
+  function randomDe5a10() {
+    Math.floor(Math.random() * 6 + 5);
+  }
+
+  //Obtener el area de un circulo
+
+  function obtenerArea() {
+    var pi = Math.PI;
+    var result = Math.pow(2,2);
+    var a = pi*resul;
+  }
+
+  //Crear Objeto Date y mostrar Fecha completa
+  function date1() {
+    var aad = new Date();
+    return aad.toTimeString();
+  }
+
+  function functionName() {
+    var aad = new Date();
+    aad.toLocaleDateString();
+  }
+
+  //Poner la fecha de mi cumpleaños
+  function miCumple() {
+    var date = new Date("01/10/1996");
+
+    //mostrar mes
+    var mes = date.getMonth() + 1;
+    //Mostrar dia
+    date.getDay();
+  }
+ //Motsrar hora:minutos:segundos de ahora
+  function mostrarReloj() {
+    var ahora = new Date();
+    return ahora.toLocaleTimeString();
+  }
+
+//Mostrar milisegundos desde 1970 a mi cumple
+function miCumpleEnMilisegundos() {
+  var date = new Date("01/10/1996");
+  date.getTime();
+}
+
+//Obtener Milisegundos entre hoy y mi cumple
+function milisegundosHoyMiCumple() {
+  var cumple = new Date("01/10/1996");
+  var ahora = new Date();
+  var diferencia;
+  diferencia = ahora.getTime() - cumple.getTime();
+  return diferencia;
+}
+
+//Concatenar 2 strings
+function concatenar() {
+    var a = "hola"
+    var b = "!!!"
+    var res = a.concat(b);
+}
+
+//Separar 2 strings
+  var a = “Hola”;
+  var b = “!!!”;
+  var res = a.slice(5,8);
+
+//Separar un string en varios y meterlo en array
+var frase = "uno, dos, tres, cuatro, cinco";
+  function separarLaFrase() {
+  frase.split(" ");
+  }
+
+  </script>
+  <body>
+
+    <!-- Crear boton  que llame a funcion cuando se haga click -->
+    <input type="button" name="Boton1" value="Sumar" onclick="funcion1();">
+
+  </body>
+</html>
