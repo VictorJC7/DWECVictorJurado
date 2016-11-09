@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ej Hola mundo hecho con nodos DOM</title>
+
+    <script type="text/javascript">
+      function cambiarh1() {
+        var hs = document.getElementsByTagName('h1');
+        var primerh = hs[0];
+        primerh.innerHTML = "H1 cambiado";
+      }
+      function cambiarp() {
+        var ps = document.getElementsByTagName('p');
+        var primerp = ps[0];
+        primerp.innerHTML = "P cambiado";
+      }
+      function cambiardiv() {
+        var divs = document.getElementsByTagName('div');
+        var primerdiv = divs[0];
+        primerdiv.innerHTML = "Div cambiado";
+      }
+    </script>
+</head>
+<body>
+
+<h1> Esto es un título</h1>
+<p>Esto es un ejemplo </p>
+<div> Esto es un div</div>
+<br><br>
+<button type="button" name="button" onclick="cambiarh1()">Cambiar h1</button>
+<button type="button" name="button" onclick="cambiarp()">Cambiar p</button>
+<button type="button" name="button" onclick="cambiardiv()">Cambiar div</button>
+</body>
+</html>
