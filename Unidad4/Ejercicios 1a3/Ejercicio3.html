@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cambiar el color de las letras</title>
+    <script type="text/javascript">
+      function recorreTag(){
+        var ps = document.getElementsByTagName('p');
+        var color = document.getElementById('txtColor').value;
+        for (var i = 0; i < ps.length; i++) {
+          var p = ps[i];
+          p.style.color = color;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="contiene_ps">
+      <p>Hola que tal</p>
+      <p>Hola que tal</p>
+      <p>Hola que tal</p>
+      <p>Hola que tal</p>
+      <p>Hola que tal</p>
+      <p>Hola que tal</p>
+    <div id="cambiame">
+      <input type="color" id="txtColor" value="#DEFECA">
+      <button id="actualizar" onclick="recorreTag();">Modificar los párrafos!</button>
+    </div>
+  </div>
+  </body>
+</html>
