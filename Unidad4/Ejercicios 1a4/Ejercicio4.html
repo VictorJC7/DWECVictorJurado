@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 4</title>
+    <script type="text/javascript">
+      function cambiarH() {
+          var hs = document.getElementsByTagName('h1');
+          var primerh = hs[0];
+          primerh.innerHTML = "Observaciones";
+      }
+      function ponerNegrita(){
+        var destacados = document.getElementsByClassName('destacado');
+        for (var i = 0; i < destacados.length; i++) {
+          destacados[i].style.fontWeight="bold";
+        }
+      }
+      function ocultarResultado(){
+        document.getElementById('resultado').style.display='none';
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sugerencias</h1>
+      <form action="#" method="post">
+        <p class="destacado">Sugerencias:</p>
+        <br>
+        <textarea name="sugerencia" rows="20" cols="100"></textarea>
+        <button type="button" name="button"
+        onclick="mostrar()">Enviar</button>
+      </form>
+      <p id="resultado">Gracias por participar</p>
+      <button type="button" name="button" onclick="cambiarH();">La palabra sugerencias me parece incorrecta, cambiala</button>
+      <button type="button" name="button" onclick="ponerNegrita();">Poner cosas en negrita</button>
+      <button type="button" name="button" onclick="ocultarResultado();">Ocultar resultado</button>
+ </body>
+</html>
