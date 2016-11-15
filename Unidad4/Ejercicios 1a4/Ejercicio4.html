@@ -18,20 +18,28 @@
       function ocultarResultado(){
         document.getElementById('resultado').style.display='none';
       }
+
+      function hacerObligatorio() {
+          var x = document.getElementsByName('sugerencia');
+          x[0].setAttribute('required','true');
+      }
+      function mostrarGracias() {
+        document.getElementById('resultado').style.display='inline';
+      }
     </script>
   </head>
-  <body>
+  <body onload="ocultarResultado();">
     <h1>Sugerencias</h1>
       <form action="#" method="post">
         <p class="destacado">Sugerencias:</p>
         <br>
-        <textarea name="sugerencia" rows="20" cols="100"></textarea>
-        <button type="button" name="button"
-        onclick="mostrar()">Enviar</button>
+        <textarea id="myTextarea" name="sugerencia" rows="20" cols="100"></textarea>
       </form>
-      <p id="resultado">Gracias por participar</p>
+      <p id="resultado">Gracias por participar <br><br></p>
       <button type="button" name="button" onclick="cambiarH();">La palabra sugerencias me parece incorrecta, cambiala</button>
       <button type="button" name="button" onclick="ponerNegrita();">Poner cosas en negrita</button>
-      <button type="button" name="button" onclick="ocultarResultado();">Ocultar resultado</button>
+      <!-- <button type="button" name="button" onclick="ocultarResultado();">Ocultar resultado</button> -->
+      <button type="button" name="button" onclick="hacerObligatorio();">Hacer el text area obligatorio</button>
+      <button type="button" name="button" onclick="mostrarGracias();">Enviar</button>
  </body>
 </html>
