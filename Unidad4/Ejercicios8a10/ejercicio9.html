@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crea elementos del DOM</title>
+    <script type="text/javascript">
+    function creaDOM(){
+      /*Aquí se escribe lo que sea necesario*/
+      var titulo=document.createElement('h1');
+      var texto=document.createTextNode("Titulo de la imagen");
+      titulo.appendChild(texto);
+      document.body.appendChild(titulo);
+      var imagen=document.createElement('img');
+      document.body.appendChild(imagen);
+      document.getElementsByTagName('img')[0].src="http://vignette3.wikia.nocookie.net/fallout/images/e/e3/Icon_pc.png/revision/latest?cb=20131123232001";
+    }
+    </script>
+  </head>
+  <body onload="creaDOM()">
+
+  </body>
+</html>
