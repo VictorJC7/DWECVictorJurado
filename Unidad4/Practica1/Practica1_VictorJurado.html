@@ -78,6 +78,7 @@ for (var i = 0; i < StarWarsCarteles.length; i++) {
 	var imagenes = document.createElement('img');
 	tabla2.appendChild(as);
 	tabla2.getElementsByTagName('a')[i].href = StarWarsCarteles[i].imbd;
+	tabla2.getElementsByTagName('a')[i].target = "_blank";
 	as.appendChild(imagenes);
 	tabla2.getElementsByTagName('img')[i].src = StarWarsCarteles[i].imagen;
 	//Pongo estilo a las imagenes
