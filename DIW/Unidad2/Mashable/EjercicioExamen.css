@@ -8,7 +8,17 @@
   margin-right: auto;
   margin-left: auto;
 }
-
+.logotabletpc{
+  display:block;
+  width: 8%;
+  height: 8%;
+  margin-top: -5%;
+}
+.logomovil{
+  margin-top: -5%;
+  display: none;
+  margin: auto;
+}
 [class*="col-"]{
   float:left;
 }
@@ -59,6 +69,15 @@
   .col-sm-10 {width: 83.33%;}
   .col-sm-11 {width: 91.66%;}
   .col-sm-12 {width: 100%;}
+
+  .logomovil{
+    display: block;
+    width: 8%;
+    height: 8%;
+  }
+  .logotabletpc{
+    display: none;
+  }
 }
 
 .cabecera{
