@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 5</title>
+    <style media="screen">
+      h1{
+        font-size: 24px;
+      }
+    </style>
+    <script type="text/javascript">
+      function cambiarCosa(event) {
+         event.target.style.fontSize = "48px";
+         event.target.width = asd.width*2;
+      }
+    </script>
+  </head>
+  <body>
+    <h1 onmousewheel="cambiarCosa(event)" id="qwe">Esto es un titulo</h1>
+    <img src="libro.png" alt="libro abierto" width="200" onmousewheel="cambiarCosa(event)" id="asd">
+  </body>
+</html>

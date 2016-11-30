@@ -3,8 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Ejercicio 4</title>
+    <script type="text/javascript">
+    function position(event){
+      if (event.shiftKey == true) {
+        var x = event.clientX;
+        var y = event.clientY;
+        console.log("X: " + x + ", Y: " + y);
+      }
+    }
+    </script>
+    <style media="screen">
+      body{
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+      }
+    </style>
   </head>
-  <body>
+  <body onmousemove="position(event)">
 
   </body>
 </html>
