@@ -2,21 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Ejercicio 5</title>
-    <style media="screen">
-      h1{
-        font-size: 24px;
-      }
-    </style>
+    <title>Ej5</title>
     <script type="text/javascript">
-      function cambiarCosa(event) {
-         event.target.style.fontSize = "48px";
-         event.target.width = asd.width*2;
-      }
+      var size = 24;
+      var ancho = 200;
+      function cambiarT(){
+
+        document.querySelector('h1').style.fontSize = size + "px";
+				document.querySelector('img').style.width = ancho + "px";
+
+				onwheel = function (e){
+						if (e.target.nodeName == "H1") {
+							size *= 2;
+							e.target.style.fontSize = size + "px";
+						} else if (e.target.nodeName == "IMG") {
+							ancho *= 2;
+							e.target.style.width = ancho + "px";
+						}
+					}
+				}
     </script>
   </head>
-  <body>
-    <h1 onmousewheel="cambiarCosa(event)" id="qwe">Esto es un titulo</h1>
-    <img src="libro.png" alt="libro abierto" width="200" onmousewheel="cambiarCosa(event)" id="asd">
+
+  <body onload="cambiarT()">
+    <h1>El único navegador que no soporta este evento es Mozilla</h1>
+    <img src="libro.png">
   </body>
 </html>
