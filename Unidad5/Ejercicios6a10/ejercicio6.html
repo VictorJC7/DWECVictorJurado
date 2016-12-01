@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6</title>
+    <style media="screen">
+      *{
+        font-size: 48px;
+        color: darkgreen;
+      }
+    </style>
+  </head>
+  <script type="text/javascript">
+    window.document.addEventListener("keydown", tecla);
+    function tecla(event) {
+      var codigo = event.keyCode;
+      document.body.innerHTML="El codigo de la tecla pulsada es " + codigo + " y la tecla pulsada es " + String.fromCharCode(event.keyCode);
+    }
+  </script>
+  <body>
+
+  </body>
+</html>
