@@ -1,0 +1,148 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*[class*="col-"] {
+  float: left;
+  padding: 5px;
+}
+
+.email{
+	background: url('email.png') no-repeat -4px -1px;
+	width: 125px;
+	height: 130px;
+}
+.tlf{
+	background: url('tlf.png') no-repeat -2px -1px;
+	width: 127px;
+	height: 127px;
+}
+img.tlf:hover{
+  opacity: 0.7;
+}
+img.email:hover{
+  opacity: 0.7;
+}
+@media (min-width: 640px) {
+  .col-lg-1 {width: 8.33%;}
+  .col-lg-2 {width: 16.66%;}
+  .col-lg-3 {width: 25%;}
+  .col-lg-4 {width: 33.33%;}
+  .col-lg-5 {width: 41.66%;}
+  .col-lg-6 {width: 50%;}
+  .col-lg-7 {width: 58.33%;}
+  .col-lg-8 {width: 66.66%;}
+  .col-lg-9 {width: 74.99%;}
+  .col-lg-10 {width: 83.33%;}
+  .col-lg-11 {width: 91.66%;}
+  .col-lg-12 {width: 100%;}
+}
+
+@media (min-width: 321px) and (max-width: 639px) {
+  .col-md-1 {width: 8.33%;}
+  .col-md-2 {width: 16.66%;}
+  .col-md-3 {width: 25%;}
+  .col-md-4 {width: 33.33%;}
+  .col-md-5 {width: 41.66%;}
+  .col-md-6 {width: 50%;}
+  .col-md-7 {width: 58.33%;}
+  .col-md-8 {width: 66.66%;}
+  .col-md-9 {width: 74.99%;}
+  .col-md-10 {width: 83.33%;}
+  .col-md-11 {width: 91.66%;}
+  .col-md-12 {width: 100%;}
+}
+
+@media (max-width: 320px) {
+  .col-sm-1 {width: 8.33%;}
+  .col-sm-2 {width: 16.66%;}
+  .col-sm-3 {width: 25%;}
+  .col-sm-4 {width: 33.33%;}
+  .col-sm-5 {width: 41.66%;}
+  .col-sm-6 {width: 50%;}
+  .col-sm-7 {width: 58.33%;}
+  .col-sm-8 {width: 66.66%;}
+  .col-sm-9 {width: 74.99%;}
+  .col-sm-10 {width: 83.33%;}
+  .col-sm-11 {width: 91.66%;}
+  .col-sm-12 {width: 100%;}
+}
+
+
+div.contenedor, #hijo {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  float: none;
+  font-size: 2em;
+}
+
+#flecha {
+  width: 100%;
+  display: table-cell;
+}
+.cabecera {
+  display: table;
+}
+img {
+  width: 100%;
+}
+
+.fa {
+  font-size: 2em;
+}
+.fa-facebook-square {
+  color: #3B5998;
+}
+.fa-facebook-square:hover {
+  opacity: 0.7;
+}
+.fa-linkedin-square {
+  color: #0077B5;
+}
+.fa-linkedin-square:hover {
+  opacity: 0.7;
+}
+.fa-twitter-square {
+  color: #00ACED;
+}
+.fa-twitter-square:hover {
+  opacity: 0.7;
+}
+.fa-google-plus-square {
+  color: #D34836;
+}
+.fa-google-plus-square:hover {
+  opacity: 0.7;
+}
+
+img#play{
+  width: 150px;
+  height: 150px;
+}
+
+img#pause{
+  width: 140px;
+  height: 140px;
+}
+
+img#volup{
+  width: 140px;
+  height: 140px;
+}
+
+img#voldown{
+  width: 140px;
+  height: 140px;
+}
+
+.repro img:hover{
+  opacity: 0.8;
+}
+
+/*hacemos el video respondive*/
+video{
+    width:100%;
+    height: auto;
+}
