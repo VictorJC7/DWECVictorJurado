@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 2</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      //Añadimos el texto
+      var texto = $(document.createElement("div")).addClass("holam").html("Hola mundo JQuery!");
+      $("body").append(texto);
+      $("div:first").css('color','blue').css('font-family','arial').css('font-size','48px');
+      //Añadimos la imagen
+      var imagen = $(document.createElement("div")).attr("id","img1");
+      $("body").append(imagen);
+      $('#img1').prepend('<img id="imagen" src="http://cdntbs.astonmartin.com/sitefinity/15MY/vanq15myhero.jpg" />').css('width','400px');
+
+  });
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
