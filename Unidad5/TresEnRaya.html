@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tres en raya</title>
+    <style media="screen">
+    div {
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     background: gray;
+     margin: 2px;
+     float: left;
+   }
+   .celda21, .celda31{
+     clear: left;
+   }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      var turno = 0;
+      var fichas = [1, 1];
+      var color = ["blue", "red"];
+
+      onclick = function ponerFicha(e) {
+          var celda = e.target;
+          celda.style.backgroundColor = color[turno];
+          comprobarLinea();
+      }
+
+      ondblclick = function quitarFicha(e) {
+        var celda = e.target;
+        celda.style.backgroundColor = "gray";
+      }
+
+      function comprobarLinea() {
+        var lineaH, lineaV;
+        var fichas = [];
+        var ganador;
+        fichas[0] = new Array(3);
+        fichas[1] = new Array(3);
+        fichas[2] = new Array(3);
+        
+        for (var i = 0; i < 3; i++) {
+          for (var j = 0; i < 3; j++) {
+            lineaH = i+1;
+            lineaV = j+1;
+            fichas[i][j] = document.getElementsByClassName('celda' + lineaH + lineaV);
+            // // obtener color de fondo de la celda:
+            // alert(document.body.style.backgroundColor);
+          }
+        }
+        for (var i = 0; i < 3; i++) {
+          for (var j = 0; i < 3; i++) {
+            if (((fichas[i][0].style.backgroundColor == fichas[i][1].style.backgroundColor) && (fichas[i][1].style.backgroundColor == fichas[i][2].style.backgroundColor)) &&
+            ((fichas[i][0].style.backgroundColor != "gray") && (fichas[i][1].style.backgroundColor != "gray") && (fichas[i][2].style.backgroundColor != "gray"))) {
+              ganador = fichas[i][0].style.backgroundColor;
+              alert("El jugador " + ganador + " ha ganado la partida! Felicidades!");
+            }
+            else if (((fichas[0][j].style.backgroundColor == fichas[1][j].style.backgroundColor) && (fichas[1][j].style.backgroundColor == fichas[2][j].style.backgroundColor))
+             && ((fichas[0][j].style.backgroundColor != "gray") && (fichas[1][j].style.backgroundColor != "gray")
+             && (fichas[2][j].style.backgroundColor != "gray"))) {
+               ganador = fichas[0][j].style.backgroundColor;
+               alert("El jugador " + ganador + " ha ganado la partida! Felicidades!");
+            }
+            else if (((fichas[0][0].style.backgroundColor == fichas[1][1].style.backgroundColor) && (fichas[2][2].style.backgroundColor == fichas[1][1].style.backgroundColor))
+            && ((fichas[0][0].style.backgroundColor != "gray") && (fichas[1][1].style.backgroundColor != "gray") && (fichas[2][2].style.backgroundColor != "gray"))) {
+              ganador = fichas[0][0].style.backgroundColor;
+              alert("El jugador " + ganador + " ha ganado la partida! Felicidades!");
+            }
+          }
+        }
+        if (turno == 0) {
+          turno++;
+        }
+        else {
+          turno--;
+        }
+      }
+      // var celdas= document.getElementsByTagName('div');
+      // for (var i = 0; i < celdas.length; i++) {
+      //   celdas[i].ponerFicha;
+      //   celdas[i].quitarficha;
+      // }
+    </script>
+    <div class="celda11"></div><div class="celda12"></div><div class="celda13"></div>
+    <div class="celda21"></div><div class="celda22"></div><div class="celda23"></div>
+    <div class="celda31"></div><div class="celda32"></div><div class="celda33"></div>
+  </body>
+</html>
