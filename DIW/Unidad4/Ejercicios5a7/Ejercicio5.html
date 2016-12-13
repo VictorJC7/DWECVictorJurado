@@ -9,7 +9,7 @@
     <script type="text/javascript">
     $(document).ready(function(){
       var encendida = $("img:first");
-      var apagada = $("#apagada:image");
+      var apagada = $("img:eq(1)");
       var encender = $("#encender:button");
       var apagar = $("#apagar:button");
       encendida.hide();
@@ -32,7 +32,7 @@
     </script>
   </head>
   <body>
-    <img src="http://previews.123rf.com/images/neyro2008/neyro20081210/neyro2008121000053/15912323-realistic-lit-light-bulb-isolated-on-white-vector-illustration.jpg" alt="Bombilla encendida" id="Encendida">
+    <img src="http://previews.123rf.com/images/neyro2008/neyro20081210/neyro2008121000053/15912323-realistic-lit-light-bulb-isolated-on-white-vector-illustration.jpg" alt="Bombilla encendida" id="Encendida" width="400">
     <img src="http://i.imgur.com/ZAczz.gif" alt="Bombilla apagada" id="Apagada">
     <br><br>
     <button id="encender">Encender</button>
