@@ -2,7 +2,10 @@
 <head>
 <meta charset="utf-8">
 <title>Ejercicio 3</title>
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js">
+</script>
+
 <script>
 $(document).ready(function(){
 //Formateamos texto e imagen
@@ -24,8 +27,9 @@ imagen.attr("width", imagen.width() + 20);
 });
 //Mas pequeña
 $("#menosAncho:button").click(function() {
-var imagen = $("img");
-imagen.attr("width", imagen.width() - 20);
+  var imagen = $("img");
+
+  imagen.attr("width", imagen.width() - 20);
 });
 });
 </script>
