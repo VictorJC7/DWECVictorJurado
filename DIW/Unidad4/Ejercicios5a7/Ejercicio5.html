@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 5</title>
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      var encendida = $("img:first");
+      var apagada = $("#apagada:image");
+      var encender = $("#encender:button");
+      var apagar = $("#apagar:button");
+      encendida.hide();
+      apagar.hide();
+
+      encender.click(function() {
+          apagada.hide();
+          encendida.show();
+          apagar.show();
+          encender.hide();
+      });
+
+      apagar.click(function() {
+        apagada.show();
+        encendida.hide();
+        apagar.hide();
+        encender.show();
+      });
+      });
+    </script>
+  </head>
+  <body>
+    <img src="http://previews.123rf.com/images/neyro2008/neyro20081210/neyro2008121000053/15912323-realistic-lit-light-bulb-isolated-on-white-vector-illustration.jpg" alt="Bombilla encendida" id="Encendida">
+    <img src="http://i.imgur.com/ZAczz.gif" alt="Bombilla apagada" id="Apagada">
+    <br><br>
+    <button id="encender">Encender</button>
+    <button id="apagar">Apagar</button>
+  </body>
+</html>
