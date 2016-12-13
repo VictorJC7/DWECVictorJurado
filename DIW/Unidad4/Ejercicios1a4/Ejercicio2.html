@@ -13,8 +13,8 @@
       //Añadimos la imagen
       var imagen = $(document.createElement("div")).attr("id","img1");
       $("body").append(imagen);
-      $('#img1').prepend('<img id="imagen" src="http://cdntbs.astonmartin.com/sitefinity/15MY/vanq15myhero.jpg" />').css('width','400px');
-
+      $('#img1').prepend('<img id="imagen" src="http://cdntbs.astonmartin.com/sitefinity/15MY/vanq15myhero.jpg" />');
+      $("img:first").attr("width", "400");
   });
     </script>
   </head>

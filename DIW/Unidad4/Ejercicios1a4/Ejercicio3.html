@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ejercicio 3</title>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+<script>
+$(document).ready(function(){
+//Formateamos texto e imagen
+$("img").attr("width", "400");
+$("h1").css("font-size", "");
+//Escondemos la imagen y los botones
+$("img").hide();
+$(":button").hide();
+//Hacemos que al hacer click en el titulo aparezcan la imagen y los botones
+$("h1").click(function() {
+  $("img").show();
+  $(":button").show();
+})
+//Modificamos tamaño de imagen al hacer click en los botones
+//Mas Grande
+$("#masAncho:button").click(function() {
+var imagen = $("img");
+imagen.attr("width", imagen.width() + 20);
+});
+//Mas pequeña
+$("#menosAncho:button").click(function() {
+var imagen = $("img");
+imagen.attr("width", imagen.width() - 20);
+});
+});
+</script>
+</head>
+<body>
+    <h1>Haz click aquí para ver la imagen!</h1>
+      <div class="contenedor">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Mundo_en_el_espacio_exterior.jpg">
+        <button id="masAncho">+</button>
+        <button id="menosAncho">-</button>
+      </div>
+</body>
+</html>
