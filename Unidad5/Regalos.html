@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Escoge tu regalo</title>
+    <style media="screen">
+      h1{
+      color: purple;
+      }
+      body{
+        text-align: center;
+      }
+      div{
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        font-size: 80px;
+        background: pink;
+        border: 1px solid purple;
+        display: inline-block;
+        color: purple;
+      }
+      img{
+        width: 200px;
+        height: 200px;
+      }
+      p{
+        color: green;
+        font-weight: bold;
+      }
+    </style>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function(){
+        for (var i = 0; i < document.querySelectorAll('div').length; i++) {
+          document.querySelectorAll('div')[i].addEventListener('click', funcionClick1);
+          document.querySelectorAll('div')[i].addEventListener('click', funcionClick2);
+          document.querySelectorAll('div')[i].addEventListener('contextmenu', funcionClickDer);
+        }
+      });
+      function funcionClick2(e) {
+        alert("Tu premio es " + e.target.id + "!!!");
+      }
+      function funcionClickDer(e) {
+        if (e.target.id == "anchoa") {
+          document.querySelectorAll('p')[0].innerHTML = "GranBomba jeje";
+        }
+        else if (e.target.id == "crucero") {
+          document.querySelectorAll('p')[0].innerHTML = "Para ir por el mar...";
+        }
+        else if (e.target.id == "coche") {
+          document.querySelectorAll('p')[0].innerHTML = "brum brum!!";
+        }
+      }
+      var n = 0;
+      function funcionClick1(e){
+        e.target.innerHTML = '<img src="' + e.target.id + '.jpg" alt="' + e.target.id +'">';
+        console.log(e.target.innerHTML);
+        n++;
+        if (n>0) {
+          for (var i = 0; i < document.querySelectorAll('div').length; i++) {
+            document.querySelectorAll('div')[i].removeEventListener('click', funcionClick1);
+            document.querySelectorAll('div')[i].removeEventListener('contextmenu', funcionClickDer);
+            // document.querySelectorAll('div')[i].removeEventListener('click', funcionClick2);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Escoge tu regalo</h1>
+    <p>Click derecho en las cajas para que aparezca una pista</p>
+    <div id="coche">?</div>
+    <div id="anchoa">?</div>
+    <div id="crucero">?</div>
+  </body>
+</html>
