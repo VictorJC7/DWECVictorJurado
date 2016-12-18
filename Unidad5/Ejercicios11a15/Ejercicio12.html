@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 12</title>
+  </head>
+  <script type="text/javascript">
+  function cambiarCoche() {
+    imagen.src = menu.value + ".jpg";
+  }
+  </script>
+  <body>
+    <select id="menu" name="menu" onchange="cambiarCoche()">
+      <option value="Ferrari">Ferrari</option>
+      <option value="Lambo">Lamborghini</option>
+      <option value="Bentley">Bentley</option>
+    </select>
+    <br><br>
+    <img src="lel.jpg" alt="coche" width="720" id="imagen">
+  </body>
+</html>

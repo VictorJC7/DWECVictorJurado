@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 14</title>
+  <script type="text/javascript">
+  onload = function () {
+    usuario.onfocus = focus;
+    contraseña.onfocus = focus;
+    usuario.onblur = blur;
+    contraseña.onblur = blur;
+  }
+  function focus(e) {
+    e.target.style.color = "darkgreen";
+  }
+  function blur(e) {
+    e.target.style.color = "pink";
+  }
+  </script>
+  <style media="screen">
+  input {
+    display: block;
+    margin: 8px;
+  }
+  </style>
+</head>
+<body>
+  <form>
+    Usuario<input type="text" id="usuario" >
+    <br>
+    Contraseña<input type="password" id="contraseña">
+  </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 13</title>
+  <script type="text/javascript">
+  onload = function () {
+    usuario.onfocus = focus;
+    contraseña.onfocus = focus;
+  }
+  function focus(e) {
+    e.target.style.color = "darkgreen";
+  }
+  </script>
+  <style media="screen">
+  input {
+    display: block;
+    margin: 8px;
+  }
+  </style>
+</head>
+<body>
+  <form>
+    Usuario: <input type="text" id="usuario">
+    <br>
+    Contraseña: <input type="password" id="contraseña">
+  </form>
+</body>
+</html>
