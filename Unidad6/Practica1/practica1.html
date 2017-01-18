@@ -6,7 +6,14 @@
 
     <style media="screen">
     *{
-      font-size: 24px;
+      font-size: 18px;
+    }
+    #txtInput{
+      font-size: 48px;
+    }
+    #txtCaptchaDiv{
+      font-weight: bold;
+      font-size: 22px;
     }
     div {
       margin-bottom: 30px;
@@ -30,7 +37,7 @@
 
     onload = function () {
     //Generamos los caracteres para el captcha
-    captchanum = Math.round(Math.random() * (9999-1000) + parseInt(1000));
+    captchanum = Math.round(Math.random() * (9999 - 1000) + parseInt(1000));
 
     // document.getElementById("txtCaptcha").value = captchanum;
     document.getElementById("txtCaptchaDiv").innerHTML = captchanum;
@@ -78,29 +85,44 @@
         numfallos++;
       }
     }
-    //Comprobamos DNI
-    // function validarDNI() {
-    // dni = document.getElementById("dni").value;
-    // var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H',
-    //  'L', 'C', 'K', 'E', 'T'];
-    //
-    // if( !(/^\d{8}[A-Z]$/.test(dni)) ) {
-    //   return false;
-    //   stringFallos += "<br>Formato para el campo apellidos incorrecto.";
-    //   numfallos++;
-    // }
-    //
-    // if(valor.charAt(8) != letras[(valor.substring(0, 8))%23]) {
-    //   return false;
-    //   stringFallos += "<br>Formato para el campo apellidos incorrecto.";
-    //   numfallos++;
-    // }
-    // }
+    //validar DNI
+    function validarDNI() {
+      var dni = document.getElementById("dni").value;
+      if ( !/^\d{8}([a-z]|[A-Z]){1}$/.test(dni) ){
+        stringFallos += "<br>Formato para el campo DNI incorrecto.";
+        numfallos++;
+      }
+    }
+    //Comprobamos que el nombre y los apellidos no coinciden
+    function comprobarIgual() {
+      var nombre = document.getElementById("nombre").value;
+      var apellidos = document.getElementById("apellidos").value;
+      if (nombre == apellidos) {
+        stringFallos += "<br>Nombre y apellidos iguales.";
+        numfallos++;
+      }
+    }
+    //Comprobamos si el DNI introducido es correcto, no de formato sino si es legal jaja
+    function dniCorrecto(){
+      var valor = document.getElementById("dni").value;
+      var letras = ['T','R','W','A','G','M','Y','F’,'P','D','X','B','N','J','Z','S','Q','V’,'H','L','C','K','E'];
+        if( !(/^\d{8}[A-Z]$/.test(valor)) ){
+          return false;
+        }
+            if(valor.charAt(8) != letras[(valor.substring(0, 8))%23]){
+              return false;
+            }
+              return true;
+      }
+
+
     function validarFormulario() {
       validarNombre();
       validarApellidos();
       validarCaptcha();
       validarCkeck();
+      validarDNI();
+      comprobarIgual();
       // validarDNI();
       var parrafo = document.getElementById("fallos");
       if (numfallos > 0) {
@@ -134,11 +156,11 @@
       </div>
       <div>
         <label for="email">Email:*</label>
-        <input type="email" name="mail" placeholder="ejemplo@nosejaja.com" required /><br>
+        <input type="email" name="mail" placeholder="ejemplo@gmail.com" required /><br>
       </div>
       <div>
         <label for="dni">DNI:*</label>
-        <input type="text" name="DNI" placeholder="48707956X" required id="dni"/><br><br>
+        <input type="text" name="DNI" placeholder="12345678A" required id="dni"/><br><br>
       </div>
       <label><input type="checkbox" id="check" value="checkbox"> He leido y aceptado las condiciones de alta en el servicio</label><br><br>
 
