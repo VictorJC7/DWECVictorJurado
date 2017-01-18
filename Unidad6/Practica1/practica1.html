@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Practica 1</title>
+
+    <style media="screen">
+    *{
+      font-size: 24px;
+    }
+    div {
+      margin-bottom: 30px;
+    }
+    div label {
+      width: 25%;
+      float: left;
+    }
+    div input{
+      margin-left: -150px;
+      border-radius: 7px;
+    }
+    input:focus {
+      border: 2px solid lightblue;
+      border-radius: 7px;
+      background: #F3F3F3;
+    }
+    </style>
+
+    <script type="text/javascript">
+
+    onload = function () {
+    //Generamos los caracteres para el captcha
+    captchanum = Math.round(Math.random() * (9999-1000) + parseInt(1000));
+
+    // document.getElementById("txtCaptcha").value = captchanum;
+    document.getElementById("txtCaptchaDiv").innerHTML = captchanum;
+
+}
+
+    var captchanum; var stringFallos = ""; var numfallos = 0;
+
+    // Comprobamos que el codigo introducido es correcto
+    function validarCaptcha(){
+      var num1 = captchanum;
+      var num2 = document.getElementById('txtInput').value;
+      if (num1 == num2){
+        return true;
+      }else{
+        // return false;
+        stringFallos += "<br>La captcha es incorrecta";
+        numfallos++;
+      }
+    }
+
+    //Comprobamos que el checkbox esta seleccionado
+    function validarCkeck() {
+      if (document.getElementById('check').checked){
+
+      }else {
+        stringFallos += "<br>No has aceptado los terminos y condiciones.";
+        numfallos++;
+      }
+    }
+
+    //Comprobamos que el nombre es correcto
+    function validarNombre() {
+    var nombre = document.getElementById("nombre").value;
+      if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) ) {
+        stringFallos += "<br>Formato para el campo nombre incorrecto.";
+        numfallos++;
+      }
+    }
+    //Comprobamos que los apellidos son correctos
+    function validarApellidos() {
+    var apellidos = document.getElementById("apellidos").value;
+      if( apellidos == null || apellidos.length == 0 || /^\s+$/.test(apellidos) ) {
+        stringFallos += "<br>Formato para el campo apellidos incorrecto.";
+        numfallos++;
+      }
+    }
+    //Comprobamos DNI
+    // function validarDNI() {
+    // dni = document.getElementById("dni").value;
+    // var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H',
+    //  'L', 'C', 'K', 'E', 'T'];
+    //
+    // if( !(/^\d{8}[A-Z]$/.test(dni)) ) {
+    //   return false;
+    //   stringFallos += "<br>Formato para el campo apellidos incorrecto.";
+    //   numfallos++;
+    // }
+    //
+    // if(valor.charAt(8) != letras[(valor.substring(0, 8))%23]) {
+    //   return false;
+    //   stringFallos += "<br>Formato para el campo apellidos incorrecto.";
+    //   numfallos++;
+    // }
+    // }
+    function validarFormulario() {
+      validarNombre();
+      validarApellidos();
+      validarCaptcha();
+      validarCkeck();
+      // validarDNI();
+      var parrafo = document.getElementById("fallos");
+      if (numfallos > 0) {
+        document.getElementById("fallos").innerHTML = stringFallos;
+        parrafo.style.color="red";
+        parrafo.style.border= "2px solid red";
+      }
+      else {
+        document.getElementById("fallos").innerHTML = "Gracias por enviar el formulario!" ;
+        parrafo.style.color="darkgreen";
+        parrafo.style.border= "2px solid darkgreen";
+      }
+    }
+
+
+    </script>
+  </head>
+  <body>
+    <form class="formulario">
+      <div>
+        <label for="nombre">Nombre:*</label>
+        <input type="text" name="nombre" placeholder="Victor" required autofocus id="nombre"/><br>
+      </div>
+      <div>
+        <label for="apellidos">Apellidos:*</label>
+        <input type="text" name="apellidos" placeholder="Jurado Clemente" required id="apellidos"/><br>
+      </div>
+      <div>
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" min="0" max="150" value="0" /><br>
+      </div>
+      <div>
+        <label for="email">Email:*</label>
+        <input type="email" name="mail" placeholder="ejemplo@nosejaja.com" required /><br>
+      </div>
+      <div>
+        <label for="dni">DNI:*</label>
+        <input type="text" name="DNI" placeholder="48707956X" required id="dni"/><br><br>
+      </div>
+      <label><input type="checkbox" id="check" value="checkbox"> He leido y aceptado las condiciones de alta en el servicio</label><br><br>
+
+      Captcha: Introduce el numero <span id="txtCaptchaDiv"></span><br>
+      <input type="hidden" id="txtCaptcha" />
+      <input type="text" name="txtInput" id="txtInput" size="5" />
+      <br><br>
+      <p id="fallos">
+      </p>
+    </form>
+    <button onclick="validarFormulario()">Enviar</button>
+  </body>
+</html>
