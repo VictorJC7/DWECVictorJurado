@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel=stylesheet href="CSS/style.css" type="text/css">
+    <script type="text/javascript" src="rutaDelArchivo1.js"></script>
+    <!-- Latest compiled and minified CSS of Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+    <div class="container-fluid">
+    <div class="row cabecera">
+      <div class="texto">
+        <h1></h1>
+      </div>
+      <div class="logo col-xs-3 col-sm-3 col-lg-3">
+        <img src="" alt="logo omar">
+      </div>
+    </div>
+    <div class="row contenido col-lg-12 col-md-12 col-sm-12">
+      <h3 id="h31">Introduzca el codigo del producto para ver ser su ficha tecnica</h3>
+      <form class="formulario" action="fichatecnina.php" method="post">
+        <input type="text" name="codigo" value="" placeholder="Buscar..." id="cajatexto">
+        <input type="submit" name="BotonEnviar" value="Enviar" id="boton" onclick="comprobarValor();">
+      </form>
+    </div>
+    <div class="row pie col-lg-12 col-md-12 col-sm-12">
+      <p id="infoContacto">
+        <strong>Omar coatings S.A</strong><br>
+         Avda Alicante, 14 - 46460(Silla).
+      </p>
+    </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+*{
+  font-size: 24px;
+  color: black;
+}
+.cabecera{
+  padding-top: 1%;
+  padding-bottom: 4%;
+  background-color: lightblue;
+}
+.contenido{
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+.pie{
+  margin-bottom: 0%;
+  background-color: lightblue;
+  padding-bottom: 0.5%;
+}
+.formulario{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+#h31{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+#infoContacto{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+#boton{
+  font-size: 1.5em;
+  /*margin-left: 25%;*/
+  white-space: nowrap;
+}
+#cajatexto{
+  font-size: 2em;
+}
