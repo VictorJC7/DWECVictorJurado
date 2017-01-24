@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Eventos</title>
+    <script type="text/javascript">
+    onload = function(){
+      var divDatos = document.getElementById('mostrar');
+      var lista;
+      lista = "Color: " + sessionStorage.color + "<br>" + "Poblacion: " + sessionStorage.poblacion
+      +"<br>" + "Provincia: " + sessionStorage.provincia + "<br>";
+      divDatos.innerHTML = lista;
+    }
+    </script>
+  </head>
+  <body>
+    <h1>Bienvenido a la pagina de Eventos!!!</h1><br><br>
+    <div class="Datos">
+      <h2>Datos introducidos: </h2><br>
+      <div id="mostrar">
+
+      </div>
+    </div>
+  </body>
+</html>
