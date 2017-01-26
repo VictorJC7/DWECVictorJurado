@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>U7 ejercicio 1</title>
+    <script type="text/javascript">
+
+    // Creamos el numero aleatorio
+    function aleatorio(a,b) {
+         return Math.round(Math.random()*(b-a)+parseInt(a));
+         }
+    var numAl = aleatorio(1,4);
+    // crear el objeto xhr
+    if (window.XMLHttpRequest) {
+      var xhr = new XMLHttpRequest();
+    }else if (ActiveXObject("Microsoft.XMLHTTP")) {
+      var xhr = ActiveXObject("Microsoft.XMLHTTP");
+    }
+    // crear la funcion que realiza la peticion
+      function solictarDatos() {
+        xhr.onreadystatechange = gestionarDatos;
+        xhr.open("GET", 'dats.txt', true);
+        xhr.send();
+      }
+      function gestionarDatos() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          resultado.innerHTML = xhr.responseText;
+        }else if (xhr.readyState == 4 && xhr.status != 200) {
+          var str = "Se ha producido el error: " + xhr.status;
+          str += "\n " + xhr.statusText;
+          str += "\n Mas informacion: ";
+          str += "\n " + xhr.getAllResponseHeaders();
+          alert(str);
+        }
+        console.log("Esto es redyState " + xhr.readyState);
+        console.log("Esto es status " + xhr.status);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Hola mundo!</h1>
+    <input type="button" value="Solicitar datos" onclick="solictarDatos();"><br>
+    <pid id="resultado">Este es el texto que sale al princpio</p>
+  </body>
+</html>

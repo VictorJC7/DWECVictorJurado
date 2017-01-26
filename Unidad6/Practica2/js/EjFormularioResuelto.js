@@ -22,7 +22,6 @@ formulario.onsubmit = function(){
     var porId=document.getElementById("nombre").value;
     console.log(nom);
     if (nom == null || nom.length == 0 || !(/^\S+$/.test(nom))){
-
          errList += "El nombre es erróneo <br/>"+porId;
          ret = false;
     }
