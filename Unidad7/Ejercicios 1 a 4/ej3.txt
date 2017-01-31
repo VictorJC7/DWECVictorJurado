@@ -1,0 +1,14 @@
+<div class="estadosPeti">
+<h2>Esatdos de peticion</h2>
+<p id="e1"></p>
+</div>
+
+<div class="cabeceras">
+<h2>Cabeceras</h2>
+<p id="e2"></p>
+</div>
+
+<div class="codEstado">
+<h2>Codigos de estado</h2>
+<p id="e3"></p>
+</div>

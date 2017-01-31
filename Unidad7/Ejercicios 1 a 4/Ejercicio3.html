@@ -2,23 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>U7 ejercicio 2</title>
+    <title>U7 ejercicio 1</title>
     <script type="text/javascript">
-    var noticia;
-    // Creamos el numero aleatorio
-    function aleatorio(a,b) {
-         return Math.round(Math.random()*(b-a)+parseInt(a));
-         }
-    var numAl = aleatorio(1,4);
-    if (numAl == 1) {
-      noticia = "Noticia1.txt";
-    }else if (numAl == 2) {
-      noticia = "Noticia2.txt";
-    }else if(numAl == 3){
-      noticia = "Noticia3.txt";
-    }else if (numAl == 4) {
-      noticia = "Noticia4.txt";
-    }
+
     // crear el objeto xhr
     if (window.XMLHttpRequest) {
       var xhr = new XMLHttpRequest();
@@ -28,12 +14,15 @@
     // crear la funcion que realiza la peticion
       function solictarDatos() {
         xhr.onreadystatechange = gestionarDatos;
-        xhr.open("GET", 'Noticia'+numAl+'.txt', true);
+        xhr.open("GET", 'ej3.txt', true);
         xhr.send();
       }
       function gestionarDatos() {
         if (xhr.readyState == 4 && xhr.status == 200) {
           resultado.innerHTML = xhr.responseText;
+          e1.innerHTML = xhr.readyState;
+          e2.innerHTML = xhr.getAllResponseHeaders();
+          e3.innerHTML = xhr.status
         }else if (xhr.readyState == 4 && xhr.status != 200) {
           var str = "Se ha producido el error: " + xhr.status;
           str += "\n " + xhr.statusText;
@@ -46,7 +35,9 @@
       }
     </script>
   </head>
-  <body onload="solictarDatos();">
-    <pid id="resultado">Este es el texto que sale al princpio</p>
+  <body>
+    <h1>Hola mundo!</h1>
+    <input type="button" value="Solicitar datos" onclick="solictarDatos();"><br>
+    <p id="resultado">Este es el texto que sale al princpio</p>
   </body>
 </html>
