@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<alumnos>
+  <alumno>
+    <nombre>Victor</nombre>
+    <apellido>jurado</apellido>
+    <nota>10</nota>
+  </alumno>
+
+  <alumno>
+    <nombre>Gayme</nombre>
+    <apellido>Garcia</apellido>
+    <nota>0</nota>
+  </alumno>
+
+  <alumno>
+    <nombre>Pablo</nombre>
+    <apellido>Tolosa</apellido>
+    <nota>mis dies</nota>
+  </alumno>
+</alumnos>

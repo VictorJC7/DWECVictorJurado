@@ -14,21 +14,33 @@
     // crear la funcion que realiza la peticion
       function solictarDatos() {
         xhr.onreadystatechange = gestionarDatos;
-        xhr.open("GET", 'dats.txt', true);
+        // xhr.open('GET','datos.xml', true);
+        xhr.open('GET','datos.json', true);
         xhr.send();
       }
       function gestionarDatos() {
         if (xhr.readyState == 4 && xhr.status == 200) {
-          resultado.innerHTML = xhr.responseText;
+          // var xmlDoc = xhr.responseXML;
+          // console.log(xmlDoc);
+          // var nombres = xmlDoc.getElementsByTagName("nombre");
+          // console.log(nombres);
+          var objeto = JSON.parse(xhr.responseText);
+          console.log(objeto);
         }else if (xhr.readyState == 4 && xhr.status != 200) {
           var str = "Se ha producido el error: " + xhr.status;
           str += "\n " + xhr.statusText;
           str += "\n Mas informacion: ";
           str += "\n " + xhr.getAllResponseHeaders();
           alert(str);
+          // var xmlDoc = xhr.responseXML;
+          // console.log(xmlDoc);
+          // var nombres = xmlDoc.getElementsByTagName("nombre");
+          // console.log(nombres);
+          var objeto = JSON.parse(xhr.responseText);
+          console.log(objeto);
         }
-        console.log("Esto es redyState " + xhr.readyState);
-        console.log("Esto es status " + xhr.status);
+        // console.log("Esto es redyState " + xhr.readyState);
+        // console.log("Esto es status " + xhr.status);
       }
     </script>
   </head>
