@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ejemplo Login</title>
+    <script type="text/javascript">
+      var xhr = new XMLHttpRequest();
+      function comprobarLogin() {
+        var name = encodeURIComponent(nombre.value);
+        var pas = encodeURIComponent(pass.value);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            resultado.innerHTML = xhr.responseText;
+          }
+        }
+        xhr.open("POST", "http://localhost:80/validaLogin.php", true);
+        var str = "<usuario><nombre>" + name +"</nombre>";
+        str +="<pass>" + pas + "</pass></usuario>";
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(str, "text/xml");
+        console.log(xmlDoc);
+        xhr.setRequestHeader("Content-Type", "text/xml");
+        xhr.send(xmlDoc);
+      }
+    </script>
+  </head>
+  <body>
+    <form method="post">
+    Nombre <input type="text" name="nombre" id="nombre">
+    Password <input type="password" name="pass" id="pass">
+    <p id="resultado"></p>
+    <input type="submit" value="Enviar" onclick="comprobarLogin();">
+    </form>
+  </body>
+</html>
