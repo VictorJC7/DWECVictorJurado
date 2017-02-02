@@ -14,13 +14,13 @@
           }
         }
         xhr.open("POST", "http://localhost:80/validaLogin.php", true);
-        var str = "<usuario><nombre>" + name +"</nombre>";
-        str +="<pass>" + pas + "</pass></usuario>";
-        var parser = new DOMParser();
-        var xmlDoc = parser.parseFromString(str, "text/xml");
-        console.log(xmlDoc);
-        xhr.setRequestHeader("Content-Type", "text/xml");
-        xhr.send(xmlDoc);
+        var usuario = new Object();
+        usuario.nombre = nombre;
+        usuario.pass = pas;
+        var objStr = JSON.stringify(usuario);
+        console.log(objStr);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(objStr);
       }
     </script>
   </head>
