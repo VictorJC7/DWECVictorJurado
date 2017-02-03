@@ -13,7 +13,7 @@
             resultado.innerHTML = xhr.responseText;
           }
         }
-        xhr.open("POST", "http://localhost:80/validaLogin.php", true);
+        xhr.open("POST", "http://localhost:80/compruebaDisponibilidad.php", true);
         var usuario = new Object();
         usuario.nombre = nombre;
         usuario.pass = pas;
