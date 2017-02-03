@@ -20,7 +20,10 @@
       function gestionarDatos() {
         if (xhr.readyState == 4 && xhr.status == 200) {
           var objeto = JSON.parse(xhr.responseText);
-          console.log(objeto);
+          for (var i = 0; i < objeto.alumnos.length; i++) {
+            resultado.innerHTML += ("Nombre y apellidos: " + objeto.alumnos[i].nombre + " " + objeto.alumnos[i].apellido
+          + ". Nota: " + objeto.alumnos[i].nota + "<br>");
+          }
         }else if (xhr.readyState == 4 && xhr.status != 200) {
           var str = "Se ha producido el error: " + xhr.status;
           str += "\n " + xhr.statusText;
@@ -36,6 +39,6 @@
   <body>
     <h1>Hola mundo!</h1>
     <input type="button" value="Solicitar datos" onclick="solictarDatos();"><br>
-    <pid id="resultado">Este es el texto que sale al princpio</p>
+    <p id="resultado">Listado json: <br></p>
   </body>
 </html>

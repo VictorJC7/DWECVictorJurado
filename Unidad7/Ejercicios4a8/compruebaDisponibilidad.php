@@ -1,4 +1,4 @@
-<?php
+<?php header("Access-Control-Allow-Origin: *");
 // Generar un número aleatorio
 srand((double)microtime()*1000000);
 $numeroAleatorio = rand(0, 10);
