@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./style.css" rel="stylesheet"></link>
+        <script type="text/javascript">
+        var xhr;
+        var url;
+        var fins1 = true;
+        var inits1 = true;
+        var response;
+
+        onload = function ()
+        {
+            formulario.s1.onchange = values1;
+            formulario.s2.onchange = values2;
+            valueSel0();
+        }
+
+        if (new XMLHttpRequest())
+        {
+            xhr = new XMLHttpRequest();
+        }
+        else if (ActiveXObject("Microsoft.XMLHTTP"))
+        {
+            xhr = ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        function valueSel0()
+        {
+            url = "http://swapi.co/api/";
+            xhr.onreadystatechange = data0;
+            xhr.open("GET", url, false);
+            xhr.send()
+        }
+        function data0()
+        {
+            if (xhr.status == 200 && xhr.readyState == 4)
+            {
+                errores.innerHTML = "";
+                var response = "";
+                responseJSON = JSON.parse(xhr.responseText);
+                formulario.s1.innerHTML = "";
+                response = "<option value=''>Elige una opcion</option>";
+                for (var item in responseJSON)
+                {
+                    response += "<option value='" + responseJSON[item] + "'>" + item + "</option>";
+                }
+                formulario.s1.innerHTML += response;
+            }
+            else if (xhr.status != 200 && xhr.readyState != 4)
+            {
+                errores.innerHTML = "Error " + xhr.status;
+                errores.innerHTML += ": " + xhr.statusText;
+                errores.innerHTML += "<br>" + xhr.getAllResponseHeaders();
+            }
+        }
+
+        function values1()
+        {
+            if (fins1)
+            {
+                url = formulario.s1.value;
+            }
+            xhr.onreadystatechange = data1;
+            xhr.open("GET", url, false);
+            xhr.send()
+        }
+        function data1()
+        {
+            if (xhr.status == 200 && xhr.readyState == 4)
+            {
+                errores.innerHTML = "";
+                var response = "";
+                var responseJSON = JSON.parse(xhr.responseText);
+                if (responseJSON.previous == null)
+                {
+                    fins1 = false;
+                    inits1 = true;
+                }
+                if (inits1)
+                {
+                    formulario.s2.innerHTML = "";
+                    response = "<option value=''>Elige una opcion</option>";
+                    inits1 = false;
+                }
+                for (var item in responseJSON.results)
+                {
+                    var val = responseJSON.results[item];
+                    if(val.name != null)
+                    {
+                        response += "<option value='" + val.url + "'>" + val.name + "</option>";
+                    }
+                    else
+                    {
+                        response += "<option value='" + val.url + "'>" + val.title + "</option>";
+                    }
+                }
+                formulario.s2.innerHTML += response;
+                if(responseJSON.next == null)
+                {
+                    fins1 = true;
+                }
+                else
+                {
+                    url = responseJSON.next;
+                    values1();
+                }
+            }
+            else if (xhr.status != 200 && xhr.readyState != 4)
+            {
+                errores.innerHTML = "Error " + xhr.status;
+                errores.innerHTML += ": " + xhr.statusText;
+                errores.innerHTML += "<br>" + xhr.getAllResponseHeaders();
+            }
+        }
+
+        function values2()
+        {
+            url = formulario.s2.value;
+            xhr.onreadystatechange = data2;
+            xhr.open("GET", url, false);
+            xhr.send()
+        }
+        function data2()
+        {
+            if (xhr.status == 200 && xhr.readyState == 4)
+            {
+                errores.innerHTML = "";
+                responseJSON = JSON.parse(xhr.responseText);
+                for (var prop in responseJSON) {
+                    if(!(/^http\S*$/.test(responseJSON[prop])))
+                    {
+                        result.innerHTML += prop + ":" + responseJSON[prop] + "<br>";
+                    }
+                }
+            }
+            else if (xhr.status != 200 && xhr.readyState != 4)
+            {
+                errores.innerHTML = "Error " + xhr.status;
+                errores.innerHTML += ": " + xhr.statusText;
+                errores.innerHTML += "<br>" + xhr.getAllResponseHeaders();
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <p>Wiki Star Wars</p>
+        <form name="formulario">
+            <select id="s1"></select>
+            <select id="s2"></select>
+            <div id="result"></div>
+        </form>
+        <div id="errores"></div>
+    </body>
+</html>
