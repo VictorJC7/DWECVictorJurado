@@ -7,9 +7,11 @@
 	$(document).ready(function() {
 		$("button").click(function(){
 			$(".imagenes").empty();
+			var sel = document.getElementById('seleccion');
+			var valor = sel.value;
 			var url = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 			$.getJSON( url, {
-				tags: "gatitos",
+				tags: valor,
 				tagmode: "any",
 				format: "json",
 				lang:"es-us",
@@ -25,7 +27,16 @@
 </script>
 </head>
 <body>
-	<button type="button" name="button">Enviame fotos</button>
+	<button type="button" name="button">Enviame fotos</button><br>
+	Seleccione la categoria: 
+	<select id="seleccion">
+  	<option value="coches">Coches</option>
+  	<option value="gatos">Gatos</option>
+  	<option value="perros">Perros</option>
+  	<option value="paisajes">Paisajes</option>
+		<option value="moviles">Moviles</option>
+		<option value="sofas">Sofas</option>
+</select>
 	<div class="imagenes">
 
 	</div>
