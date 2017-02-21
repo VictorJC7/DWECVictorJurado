@@ -17,7 +17,7 @@
         xhr.open('GET','datos.xml', true);
         xhr.send();
       }
-      function gestionarDatos() {
+      function gestiona rDatos() {
         if (xhr.readyState == 4 && xhr.status == 200) {
           var xmlDoc = xhr.responseXML;
           console.log(xmlDoc);
