@@ -14,11 +14,8 @@
       <!-- Añadimos ajax: -->
       <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
 
-<!-- Estilo para el formulario -->
-  <link rel="stylesheet" href="../CSS/estilos.css">
   </head>
   <body>
-    <!-- Pagina de contacto -->
     <div class="contacto">
       <section class="contact" id="contact">
         <div class="container">
@@ -31,7 +28,7 @@
             </div>
           </div>
           <div class="row">
-            <form method="post" action="contact.php" name="contactform" id="contactform">
+            <form method="post" name="contactform" id="contactform">
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <fieldset>
                   <input name="name" type="text" id="name" size="30" placeholder="Nombre">
@@ -57,13 +54,14 @@
               </div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <fieldset>
-                  <button type="submit" class="btn btn-lg" id="submit" value="Submit">Enviar</button>
+                  <button type="button" class="btn btn-lg" id="botoncito" value="Enviar">Enviar</button>
                 </fieldset>
               </div>
             </form>
           </div>
         </div>
-      </section>
     </div>
   </body>
+  <!-- Script para el formulario: -->
+  <script type="text/javascript" src="./Scripts/formulario.js"></script>
 </html>
