@@ -8,6 +8,7 @@
 		$("button").click(function(){
 			$(".imagenes").empty();
 			var sel = document.getElementById('seleccion');
+			// con jquery: $( "#seleccion" ).val();
 			var valor = sel.value;
 			var url = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 			$.getJSON( url, {
@@ -19,16 +20,19 @@
 			function(data) {
 				$.each( data.items, function( i, item ) {
 					$( "<img>" ).attr( "src", item.media.m ).appendTo(".imagenes").width(100);
-					if ( i === 3 ) { return false;} //Hago esto para mostrar sólo 4
+					if ( i === 6 ) { return false;} //Hago esto para mostrar sólo 7
 				});
 			});
 		});
+		$("select").change(function(){
+		 $(".imagenes").empty();
+	 })
 	});
 </script>
 </head>
 <body>
 	<button type="button" name="button">Enviame fotos</button><br>
-	Seleccione la categoria: 
+	Seleccione la categoria:
 	<select id="seleccion">
   	<option value="coches">Coches</option>
   	<option value="gatos">Gatos</option>

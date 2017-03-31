@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio prueba 1</title>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    //asociamos una función al click del menú
+    $('.elemMenu').on('click', function(e){
+      //evitamos que el enlace funcione:
+      e.preventDefault();
+      //obtenemos de href las variables url y title
+      var url = $(e.target).attr("href") + ".html";
+      var	title = $(e.target).text();
+      //cambiamos el historial subiendo el estado correspondiente a la url que hemos obtenido en el enlace
+      history.pushState({
+        url: url,
+        title: title
+      }, title, url);
+      document.title = title;
+
+      //hacemos una petición Ajax del contenido
+      $("#contenedor").load(url);
+      //cambiamos los estilos del menu
+      //quitamos los enlaces pulsados
+      $(".pulsado").removeClass("pulsado");
+      //dejamos pulsado el enlace seleccionado
+      //Coge 0 de delante y 5 de atras
+      //Otra forma de hacerlo: url.split(".")[0]; nos devuelve lo que hay antes del punto 
+      var enlace = url.slice(0,-5);//quitamos ".html"
+      $("li:has(a[href='" + enlace + "'])").addClass("pulsado");
+    });
+    // Cuando haya un cambio de historial, es decir que cambio de pagina, es decir que cambio con las flechitas
+
+    $(window).on('popstate', function (e) {
+      //obtenemos el valor de state del evento
+      //Se obtiene el evento anterior
+      var state = e.originalEvent.state;
+
+      if (state == null) {
+        // Comprobamos si ha vuelto al incio y si lo ha hecho vaciamos el contenedor y quitamos las clases pulsado
+        document.title = 'Victor';
+        $("#contenedor").empty();
+        //quitamos los enlaces pulsados
+        $(".pulsado").removeClass("pulsado");
+      } else {
+        //Cuando ya hemos estado coge el titulo anterior y lo pone como titulo de la pagina.
+        document.title = state.title;
+        var url = state.url;
+        $("#contenedor").load(url);
+        var enlace = url.slice(0,-5);//quitamos ".html"
+        //Cambiamos los estilos:
+        //quitamos los enlaces pulsados
+        $(".pulsado").removeClass("pulsado");
+        //ponemos el estilo del enlace pulsado
+        //El elemento de la lista que tenga en el href el enlace, es decir la url sin el .htmlhacemos que se le ponga
+        // la clase pulsado
+        $("li:has(a[href='" + enlace + "'])").addClass("pulsado");
+      }
+    });
+  });
+  </script>
+  <style media="screen">
+    #menu li{
+      color: black;
+      list-style-type: none;
+	    display: inline-block;
+	    background-color: white;
+	    border:0.5px solid gray;
+	    width: 140px;
+	    text-align: center;
+    }
+    #menu li:hover{
+      background-color: lightgray;
+    }
+    #menu .pulsado{
+      background-color: darkgreen;
+      border: 1px solid black;
+    }
+    .pie{
+      border: 1px solid black;
+      padding: 5% 5% 5% 5%;
+      background-color: gray;
+      color: black;
+    }
+  </style>
+  </head>
+  <body>
+    <div class="cabecera">
+      <div class="titulo">
+        <h1>Pagina de prueba!!!</h1>
+        <div class="menu">
+        <ul id="menu">
+          <li class="elemMenu"><a href="pg1">Pagina1</a></li>
+          <li class="elemMenu"><a href="pg2">Pagina2</a></li>
+          <li class="elemMenu"><a href="pg3">Pagina3</a></li>
+        </ul>
+        </div>
+      </div>
+    </div>
+    <div class="contenedor" id="contenedor">
+
+    </div>
+    <div class="pie">
+      <div class="letrasPie">
+        Esto es el pie de la pagina!
+      </div>
+    </div>
+  </body>
+</html>

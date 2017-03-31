@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Examen Bloque 3</title>
+    <style media="screen">
+      form{
+        width: 400px;
+      }
+      div label{
+        width: 100px;
+        float:left;
+        margin-top: 5px;
+      }
+      input[type="text"],input[type="password"]{
+        padding-left:0.4em;
+        margin-top: 5px;
+        border-color: black;
+      }
+      input[type="submit"]{
+        float:right;
+        border-color: black;
+      }
+      #ayuda{
+        font-size: 0.8em;
+        font-style: italic;
+      }
+      #resultado, #errores{
+        font-size: 0.8em;
+        font-style: italic;
+        font-weight: bold;
+        color: red;
+      }
+      #contenido{
+        border: 1px solid navy;
+        height: 200px;
+      }
+    </style>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+    onload = function(){
+      var formulario = document.forms[0];
+      // console.log(usu, contra);
+    }
+    function valForm(e){
+      var aviso = document.getElementById("resultado");
+      var avisoError = document.getElementById('errs');
+      var errList = "";
+      var errores = 0;
+      var errorUsu = false;
+      var errorPas = false;
+      var loged = false;
+      function validarUsuario(usuario) {
+        if (!/^\w+@\w+\.\w+$/.test(usuario)){
+          errList += "El usuario es incorrecto <br/>";
+          errores++;
+          errorUsu = true;
+        }
+      }
+      function validarPass(pass){
+        if (/^\w{4,6}$/.test(pass)) {
+          return true;
+        }else {
+          errList += "Contraseña debe tener entre 4 y 6 caracteres!<br>";
+          errores++;
+          errorPas = true;
+        }
+      }
+      e.preventDefault();
+      var contra = document.getElementById('pass').value;
+      var usu = document.getElementById('user').value;
+      console.log(usu, contra);
+      validarUsuario(usu);
+      validarPass(contra);
+      if (errores == 0) {
+        aviso.innerHTML = "Gracias por logarte!";
+        avisoError.innerHTML = "";
+        document.getElementById('user').style.borderColor="black";
+        document.getElementById('pass').style.borderColor="black";
+        loged = true;
+
+        //Desde aqui
+        var xhr = new XMLHttpRequest();
+        function comprobarLogin() {
+          var name = encodeURIComponent(usu);
+          var pas = encodeURIComponent(contra);
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              resultado.innerHTML = xhr.responseText;
+            }
+          }
+          xhr.open("POST", "http://localhost:80/login.php", true);
+          var usuarioo = new Object();
+          usuarioo.nombre = nombre;
+          usuarioo.pass = pas;
+          var objStr = JSON.stringify(usuarioo);
+          console.log(objStr + "yey");
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(objStr);
+        }
+        comprobarLogin();
+        //Hasta aqui!
+
+      }else{
+        avisoError.innerHTML = errList;
+        if ((errorUsu == true) && (errorPas == false)) {
+          document.getElementById('user').style.borderColor="red";
+        }else if ((errorUsu == false) && (errorPas == true)) {
+          document.getElementById('pass').style.borderColor="red";
+        }
+      }
+    }
+
+
+    function guardarClavesLocal() {
+       if ((window.localStorage != null) && (sessionStorage != undefined)) {
+         //Guardamos erl usuario de forma permanente
+          var usuario_object = document.getElementById('user');
+          var usuarioLoc = usuario_object.value;
+          localStorage.setItem("usuario", usuarioLoc);
+          //Guardmaos la contraseña en sesion
+          var pass_object = document.getElementById('pass');
+          var passSes = pass_object.value;
+          sessionStorage.setItem("pass", passSes);
+       }else {
+         alert("Tu navegador no soporta este tipo de almacenamiento...");
+       }
+     }
+
+
+     function mostrarInfo(e) {
+       e.preventDefault();
+       // crear el objeto xhr
+       if (window.XMLHttpRequest) {
+         var xhr = new XMLHttpRequest();
+         console.log("xhr creado con exito");
+       }else if (ActiveXObject("Microsoft.XMLHTTP")) {
+         var xhr = ActiveXObject("Microsoft.XMLHTTP");
+       }
+       // crear la funcion que realiza la peticion
+         function solicitarDatos() {
+           xhr.onreadystatechange = gestionarDatos;
+           xhr.open("GET", 'tooltip.txt', true);
+           xhr.send();
+         }
+         function gestionarDatos() {
+           var ayudaInfo = document.getElementById('tooltip');
+           if (xhr.readyState == 4 && xhr.status == 200) {
+             console.log("hola??");
+             ayudaInfo.innerHTML = xhr.responseText;
+           }else if (xhr.readyState == 4 && xhr.status != 200) {
+             var str = "Se ha producido el error: " + xhr.status;
+             str += "\n " + xhr.statusText;
+             str += "\n Mas informacion: ";
+             str += "\n " + xhr.getAllResponseHeaders();
+             alert(str);
+           }
+         }
+         solicitarDatos();
+     }
+    </script>
+  </head>
+  <body>
+    <form method="post">
+      <fieldset>
+        <legend>Login</legend>
+      <div>
+        <label for="us">Usuario:</label>
+        <input type="text" name="us" id="user">
+        <a href="#" onclick="mostrarInfo(event);">Ayuda</a>
+        <p id="tooltip"></p>
+      </div>
+      <div>
+        <label for="pass">Contraseña:</label>
+        <input type="password" name="pass" id="pass">
+      </div>
+      <p id="resultado"></p>
+      <p id="errs"></p>
+      <input type="submit" value="Enviar" id="enviar" onclick="valForm(event); guardarClavesLocal();"></input>
+      </fieldset>
+    </form>
+    <h3>Mis imágenes:</h3>
+    <div id="contenido"></div>
+  </body>
+</html>
