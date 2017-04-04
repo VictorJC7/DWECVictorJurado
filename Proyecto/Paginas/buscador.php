@@ -1,13 +1,6 @@
 <?php
-$host_db = "localhost"; //Host de la Base de Datos
-$name_db = "pruebaDB"; //Nombre de la BD
-$user_db = "root"; //Usuario de la Base de Datos
-$pass_db = ""; //Pass del usuario de la bd
-$tbl_db = ""; //Nombre de la tabla usuarios de la BD
-//Fuente: https://desarrolloweb.com/articulos/2087.php
 
-//Conectamos con la Base de Datos
-$conexion = new mysqli($host_db, $user_db, $pass_db, $name_db);
+require('settings.php');
 
 $busqueda = $_GET['busqueda'];
 //Contamos el número de palabras de la cadena para determinar el tipo de búsqueda
